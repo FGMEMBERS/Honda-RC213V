@@ -31,7 +31,6 @@
     <object-name>carrd01</object-name>
     <object-name>carrd03</object-name>
     <object-name>carrd03.inner</object-name>
-    <object-name>carrd03.number</object-name>
     <object-name>screws</object-name>
     <object-name>carrd04</object-name>
     <object-name>carrd05</object-name>
@@ -56,7 +55,6 @@
     <object-name>m7</object-name>
     <object-name>m8</object-name>
     <object-name>mu</object-name>
-    <object-name>p1</object-name>
     <object-name>p2</object-name>
     <object-name>pl3</object-name>
     <object-name>r1</object-name>
@@ -268,7 +266,6 @@
       <object-name>carrd01</object-name>
       <object-name>carrd03</object-name>
       <object-name>carrd03.inner</object-name>
-      <object-name>carrd03.number</object-name>
       <object-name>screws</object-name>
       <object-name>carrd04</object-name>
       <object-name>carrd05</object-name>
@@ -295,7 +292,6 @@
       <object-name>m7</object-name>
       <object-name>m8</object-name>
       <object-name>mu</object-name>
-      <object-name>p1</object-name>
       <object-name>p2</object-name>
       <object-name>pl3</object-name>
       <object-name>r1</object-name>
@@ -345,7 +341,6 @@
         <object-name>carrd01</object-name>
         <object-name>carrd03</object-name>
         <object-name>carrd03.inner</object-name>
-        <object-name>carrd03.number</object-name>
         <object-name>screws</object-name>
         <object-name>carrd04</object-name>
         <object-name>carrd05</object-name>
@@ -372,7 +367,6 @@
         <object-name>m7</object-name>
         <object-name>m8</object-name>
         <object-name>mu</object-name>
-        <object-name>p1</object-name>
         <object-name>p2</object-name>
         <object-name>pl3</object-name>
         <object-name>r1</object-name>
@@ -423,7 +417,6 @@
         <object-name>m6</object-name>
         <object-name>m7</object-name>
         <object-name>m8</object-name>
-        <object-name>p1</object-name>
         <object-name>p2</object-name>
         <object-name>w</object-name>
 	    <object-name>starter</object-name>
@@ -452,7 +445,6 @@
           <object-name>e</object-name>
           <object-name>m2</object-name>
           <object-name>m4</object-name>
-          <object-name>p1</object-name>
           <object-name>p2</object-name>
           <object-name>w</object-name>
           <property>sim/multiplay/generic/float[2]</property>
