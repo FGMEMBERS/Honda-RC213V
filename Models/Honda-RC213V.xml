@@ -124,9 +124,9 @@
 	<name>RPM</name>
     <path>Aircraft/Honda-RC213V/Models/Instruments/combi/combi.xml</path>
     <offsets>
-      <x-m> -0.64 </x-m>
+      <x-m> -0.73 </x-m>
       <y-m> -0.0765 </y-m>
-      <z-m> 0.97 </z-m>
+      <z-m> 0.905 </z-m>
       <pitch-deg> -38 </pitch-deg>
     </offsets>
   </model>
