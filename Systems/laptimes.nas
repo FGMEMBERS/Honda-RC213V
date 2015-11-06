@@ -125,7 +125,7 @@ var wp3ct = [49.77349913,18.48491256,314.0,"Sady"];
 var wp1bo = [48.85190347,10.33299092,614.0,"Start/Ziel"];
 
 # Ground Marker Position Rondel - lat,lon,alt in meter
-var wp2bo = [48.85024661,10.33030573,616.0,"Steilkurve"];
+var wp2bo = [48.85034821,10.33039495,617.0,"Steilkurve"];
 
 var pa = "TT";
 var sectors = sectors_tt = [wp1tt, wp2tt, wp3tt, wp4tt, wp5tt, wp6tt];
