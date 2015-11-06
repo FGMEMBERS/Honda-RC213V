@@ -119,6 +119,28 @@
 		</condition>
 	</animation>
 
+	<animation>
+	<type>select</type>
+	<object-name>exhaustHeat</object-name>
+		<condition>
+			<greater-than>
+				<property>engines/engine[0]/rpm</property>
+				<value>10000</value>
+			</greater-than>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>exhaustHeat</object-name>
+		<emission>
+			<red>0.0052</red>
+			<green>0.00002</green>
+			<blue>0.0000025</blue>
+			<factor-prop>engines/engine[0]/rpm</factor-prop>
+		</emission>
+	</animation>
+
   <!-- 1. SPEED --> 
   <model>
 	<name>RPM</name>
@@ -272,6 +294,7 @@
       <object-name>carrd06</object-name>
       <object-name>carrd07</object-name>
       <object-name>cro</object-name>
+      <object-name>exhaustHeat</object-name>
       <object-name>di</object-name>
       <object-name>e</object-name>
       <object-name>e01</object-name>
@@ -347,6 +370,7 @@
         <object-name>carrd06</object-name>
         <object-name>carrd07</object-name>
         <object-name>cro</object-name>
+        <object-name>exhaustHeat</object-name>
         <object-name>di</object-name>
         <object-name>e</object-name>
         <object-name>e01</object-name>
