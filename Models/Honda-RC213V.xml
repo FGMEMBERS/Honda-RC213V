@@ -144,11 +144,11 @@
   <!-- 1. SPEED --> 
   <model>
 	<name>RPM</name>
-    <path>Aircraft/Honda-RC213V/Models/Instruments/combi/combi.xml</path>
+    <path>Aircraft/Honda-RC213V/Models/Instruments/combi/tacho.xml</path>
     <offsets>
-      <x-m> -0.73 </x-m>
-      <y-m> -0.0765 </y-m>
-      <z-m> 0.905 </z-m>
+      <x-m> -0.72 </x-m>
+      <y-m> 0.0 </y-m>
+      <z-m> 0.90 </z-m>
       <pitch-deg> -38 </pitch-deg>
     </offsets>
   </model>
