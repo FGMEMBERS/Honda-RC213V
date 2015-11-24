@@ -8,7 +8,7 @@
 <PropertyList>
  <sim>
 		<description>Honda-RC213V</description>
-		<author>LAKE OF CONSTANCE HANGAR :: M.Kraus</author>
+		<author>LAKE OF CONSTANCE HANGAR :: Luca Negrassus</author>
 		<aircraft-version>0.0.1</aircraft-version>
 		<status>alpha</status>
 		<flight-model>yasim</flight-model>
