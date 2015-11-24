@@ -43,6 +43,15 @@ var ascon = props.globals.initNode("/controls/Honda-RC213V/SCS/on-off",1,"BOOL")
 
 var loop = func {
 
+	var msec = getprop("/gear/gear/rollspeed-ms") or 0;
+	var kmh = msec*3600/1000;
+	var gefahrenem = getprop("/instrumentation/Honda-RC213V/distance-calculator/mzaehler") or 0;
+	var tagesm = getprop("/instrumentation/Honda-RC213V/distance-calculator/dmzaehler") or 0;
+	gefahrenem = gefahrenem + msec/8*1.16;  # 0.125 sec * 8 / 1.16 correction value for the wheel dimension
+	tagesm = tagesm + msec/8*1.16;
+	setprop("/instrumentation/Honda-RC213V/distance-calculator/mzaehler", gefahrenem);
+	setprop("/instrumentation/Honda-RC213V/distance-calculator/dmzaehler", tagesm);
+
 	# shoulder view helper
 	var cv = getprop("sim/current-view/view-number") or 0;
 	var apos = getprop("/devices/status/keyboard/event/key") or 0;

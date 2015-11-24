@@ -35,7 +35,17 @@ var forkcontrol = func{
 	}else{
 		setprop("/controls/gear/brake-front", 0);
 	}
-	settimer(forkcontrol, 0.05);
+	
+	# distance calculator helper
+	if(getprop("/instrumentation/Honda-RC213V/speed-indicator/selection")){
+		setprop("/instrumentation/Honda-RC213V/distance-calculator/miles", getprop("/instrumentation/Honda-RC213V/distance-calculator/mzaehler")*0.621371192); # miles on bike
+		setprop("/instrumentation/Honda-RC213V/distance-calculator/dmiles", getprop("/instrumentation/Honda-RC213V/distance-calculator/dmzaehler")*0.621371192); # miles a day
+	}else{
+		setprop("/instrumentation/Honda-RC213V/distance-calculator/miles", getprop("/instrumentation/Honda-RC213V/distance-calculator/mzaehler")); # km on bike
+		setprop("/instrumentation/Honda-RC213V/distance-calculator/dmiles", getprop("/instrumentation/Honda-RC213V/distance-calculator/dmzaehler")); # km a day
+	}
+	
+	settimer(forkcontrol, 0.0);
 };
 
 forkcontrol();
@@ -187,18 +197,17 @@ setlistener("/controls/engines/engine[0]/throttle", func (position){
 
 #----- speed meter selection ------
 
-setlistener("/instrumentation/airspeed-indicator/indicated-speed-kt", func (speed){
-	var groundspeed = getprop("/velocities/groundspeed-kt") or 0;
+setlistener("/gear/gear/rollspeed-ms", func (speed){
     var speed = speed.getValue();
 	if(getprop("/instrumentation/Honda-RC213V/speed-indicator/selection")){
-		if(groundspeed > 0.1){
-			setprop("/instrumentation/Honda-RC213V/speed-indicator/speed-meter", speed*1.15077945); # mph
+		if(speed > 0.1){
+			setprop("/instrumentation/Honda-RC213V/speed-indicator/speed-meter", speed*3600/1000*0.621371); # mph
 		}else{
 			setprop("/instrumentation/Honda-RC213V/speed-indicator/speed-meter", 0);
 		}
 	}else{
-		if(groundspeed > 0.1){
-			setprop("/instrumentation/Honda-RC213V/speed-indicator/speed-meter", speed*1.852); # km/h
+		if(speed > 0.1){
+			setprop("/instrumentation/Honda-RC213V/speed-indicator/speed-meter", speed*3600/1000); # km/h
 		}else{
 			setprop("/instrumentation/Honda-RC213V/speed-indicator/speed-meter", 0);
 		}

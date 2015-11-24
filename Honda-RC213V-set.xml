@@ -314,6 +314,7 @@ and have fun!</text>
 		<path>/Honda-RC213V/CT/sector[2]/fastest-time</path>
 		<path>/controls/flight/select-throttle-input</path>
 		<path>/controls/Honda-RC213V/old-mens-mode</path>
+		<path>/instrumentation/Honda-RC213V/distance-calculator/mzaehler</path>
 		<path>/controls/hang-off-speed</path>
 	</aircraft-data> 
 	<current-view>
@@ -925,6 +926,12 @@ and have fun!</text>
 				<speed-limiter-switch type="bool">0</speed-limiter-switch>
 				<selection type="int">0</selection>
 			</speed-indicator>
+			<distance-calculator>
+				<mzaehler type="float">0.0</mzaehler>
+				<dmzaehler type="float">0.0</dmzaehler>
+				<miles type="float">0.0</miles>
+				<dmiles type="float">0.0</dmiles>
+			</distance-calculator>
 		</Honda-RC213V>
 		<transponder>
 			<id-code type="int">26</id-code>
