@@ -443,24 +443,6 @@
 	               </binding>           
 	           </action>
 	       </animation>		   
-    
-   <!-- selection -->
-       <animation>
-           <type>pick</type>
-           <object-name>select-button-plane</object-name>
-   		<visible>false</visible>
-           <action>
-    	    <button>0</button>
-               <binding>	    
-   	    	  <command>property-toggle</command>
-   			<property>instrumentation/Honda-RC213V/speed-indicator/selection</property>
-   			<step>1</step>
-   			<min>0</min>
-   			<max>1</max>
-   			<wrap>1</wrap>		
-               </binding>           
-           </action>
-       </animation>	
 
    	 <animation>
    	    <type>textranslate</type>
