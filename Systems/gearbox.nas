@@ -175,8 +175,10 @@ var loop = func {
 			  setprop("/sim/weight[1]/weight-lb", throttle.getValue()*300);
 			}else if(fastcircuit.getValue() == 0.2){
 			  transmissionpower = 0.9*throttle.getValue()-propulsion.getValue()/maxrpm;
+			  setprop("/sim/weight[1]/weight-lb", throttle.getValue()*100);
 			}else if(fastcircuit.getValue() == 0.3){
 			  transmissionpower = 0.85*throttle.getValue()-propulsion.getValue()/maxrpm;
+			  setprop("/sim/weight[1]/weight-lb", 0);
 			}else if(fastcircuit.getValue() == 0.4){
 			  transmissionpower = 0.75*throttle.getValue()-propulsion.getValue()/maxrpm;
 			}else if(fastcircuit.getValue() == 0.5){
