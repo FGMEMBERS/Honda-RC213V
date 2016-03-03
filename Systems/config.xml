@@ -214,6 +214,21 @@
   	    </text>
   	  </group>	  
 	  <hrule/>
+	  <hrule/>	
+	    
+      <group>
+        <layout>hbox</layout>
+        <button>
+          <legend>New Race</legend>
+          <default>false</default>
+          <binding>
+            <command>nasal</command>
+            <script>bmw.clear_race_datas();</script>
+          </binding>
+        </button>
+      </group>
+	  	  
+	  <hrule/>
 
   	  <group>
   	    <layout>hbox</layout>
@@ -224,6 +239,7 @@
 		  </binding>
   	      <min>0.0</min>
 		  <max>320.0</max>
+  	      <halign>left</halign>
   	    </slider>
   	    <text>
   	      <property>/controls/hang-off-speed</property>
@@ -237,19 +253,54 @@
   	      <halign>right</halign>
   	    </text>
   	  </group>
+
+  	  <group>
+  	    <layout>hbox</layout>
+  	    <slider>
+  	      <property>/controls/hang-off-view-deg</property>
+  	      <binding>
+			  <command>dialog-apply</command>
+		  </binding>
+  	      <min>0.0</min>
+		  <max>90.0</max>
+  	      <halign>left</halign>
+  	    </slider>
+  	    <text>
+  	      <property>/controls/hang-off-view-deg</property>
+  	      <label>0123456</label>
+  	      <format>%.1f</format>
+  	      <live>1</live>
+  	      <halign>right</halign>
+  	    </text>
+  	    <text>
+  	      <label>max. hang-off view angle</label>
+  	      <halign>right</halign>
+  	    </text>
+  	  </group>	
 	  
-      <group>
-        <layout>hbox</layout>
-        <button>
-          <legend>New Race</legend>
-          <default>false</default>
-          <binding>
-            <command>nasal</command>
-            <script>honda.clear_race_datas();</script>
-          </binding>
-        </button>
-      </group>
-	  
+  	  <group>
+  	    <layout>hbox</layout>
+  	    <slider>
+  	      <property>/controls/steering-damper</property>
+  	      <binding>
+			  <command>dialog-apply</command>
+		  </binding>
+  	      <min>0.1</min>
+		  <max>1.0</max>
+  	      <halign>left</halign>
+  	    </slider>
+  	    <text>
+  	      <property>/controls/steering-damper</property>
+  	      <label>0123456</label>
+  	      <format>%.2f</format>
+  	      <live>1</live>
+  	      <halign>right</halign>
+  	    </text>
+  	    <text>
+  	      <label>steering damper</label>
+  	      <halign>right</halign>
+  	    </text>
+  	  </group>	   	  
   <hrule/>
 
   <button>

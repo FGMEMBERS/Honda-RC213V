@@ -5,6 +5,8 @@
 ###############################################################################################
 var config_dlg = gui.Dialog.new("/sim/gui/dialogs/config/dialog", getprop("/sim/aircraft-dir")~"/Systems/config.xml");
 var hangoffspeed = props.globals.initNode("/controls/hang-off-speed",80,"DOUBLE");
+var hangoffviewdeg = props.globals.initNode("/controls/hang-off-view-deg",0,"DOUBLE");
+var steeringdamper = props.globals.initNode("/controls/steering-damper",0.1,"DOUBLE");
 var waiting = props.globals.initNode("/controls/waiting",0,"DOUBLE");
 
 ################## Little Help Window on bottom of screen #################
@@ -43,6 +45,47 @@ var forkcontrol = func{
 		setprop("/controls/gear/brake-front", bl);
 	}else{
 		setprop("/controls/gear/brake-front", 0);
+	}
+	
+	# shoulder view helper
+	var cv = getprop("sim/current-view/view-number") or 0;
+	var apos = getprop("/devices/status/keyboard/event/key") or 0;
+	var press = getprop("/devices/status/keyboard/event/pressed") or 0;
+	var du = getprop("/controls/Honda-RC213V/driver-up") or 0;
+	#helper turn shoulder to look back
+	if(cv == 0 and !du){
+		if(apos == 49 and press){
+			setprop("/sim/current-view/heading-offset-deg", 155);
+			setprop("/controls/Honda-RC213V/driver-looks-back",1);
+		}else{
+			var hdgpos = 0;
+		    var posi = getprop("/controls/flight/aileron-manual") or 0;			
+			var sceneryposi = posi*45;
+			if(sceneryposi > 0){
+				sceneryposi = (sceneryposi > 18) ? 18 : sceneryposi;
+			}else{
+				sceneryposi = (sceneryposi < -18) ? -18 : sceneryposi;
+			}
+		  	if(posi > 0.0001 and getprop("/controls/hangoff") == 1){
+				hdgpos = 360 - 60*posi;
+				hdgpos = (hdgpos < (360 - hangoffviewdeg.getValue())) ? 360 - hangoffviewdeg.getValue() : hdgpos;
+		  		setprop("/sim/current-view/goal-heading-offset-deg", hdgpos);
+				setprop("/sim/current-view/goal-roll-offset-deg", sceneryposi);
+		  	}else if (posi < -0.0001 and getprop("/controls/hangoff") == 1){
+				hdgpos = 60*abs(posi);
+				hdgpos = (hdgpos > hangoffviewdeg.getValue()) ? hangoffviewdeg.getValue() : hdgpos;
+		  		setprop("/sim/current-view/goal-heading-offset-deg", hdgpos);
+				setprop("/sim/current-view/goal-roll-offset-deg", sceneryposi);
+			}else if (posi > 0 and posi < 0.0001 and getprop("/controls/hangoff") == 1){
+				setprop("/sim/current-view/goal-heading-offset-deg", 360);
+				setprop("/sim/current-view/goal-roll-offset-deg", 0);
+			}else{
+				setprop("/sim/current-view/goal-heading-offset-deg", 0);
+				setprop("/sim/current-view/goal-roll-offset-deg", 0);
+			}
+			setprop("/controls/Honda-RC213V/driver-looks-back",0);
+			setprop("/controls/Honda-RC213V/driver-looks-back-right",0);
+		}
 	}
 	
 	# distance calculator helper
@@ -124,7 +167,9 @@ setlistener("/controls/flight/aileron", func (position){
 		}else{
 			var np = math.round(position*position*position*100);
 			np = np/100;
-			interpolate("/controls/flight/aileron-manual", np,0.1);
+			#print("NP: ", np);
+			var sensibility = (np == 0 or abs(np) < steeringdamper.getValue()) ? steeringdamper.getValue() : abs(np);
+			interpolate("/controls/flight/aileron-manual", np, sensibility);
 		}
 	}
 });
@@ -155,7 +200,7 @@ setlistener("/surface-positions/left-aileron-pos-norm", func{
 			var godown = getprop("/instrumentation/airspeed-indicator/indicated-speed-kt") or 0;
 			var lookup = getprop("/controls/gear/brake-right") or 0;
 			var onwork = getprop("/controls/hangoff") or 0;
-			if(godown > 10 and godown < hangoffspeed.getValue()){
+			if(godown < hangoffspeed.getValue()){
 				var factor = (position <= 0)? -0.38 : 0.38;
 				factor = (abs(factor) > abs(position)) ? position : factor;
 				if(onwork == 0){

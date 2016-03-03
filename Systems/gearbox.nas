@@ -52,21 +52,6 @@ var loop = func {
 	setprop("/instrumentation/Honda-RC213V/distance-calculator/mzaehler", gefahrenem);
 	setprop("/instrumentation/Honda-RC213V/distance-calculator/dmzaehler", tagesm);
 
-	# shoulder view helper
-	var cv = getprop("sim/current-view/view-number") or 0;
-	var apos = getprop("/devices/status/keyboard/event/key") or 0;
-	var press = getprop("/devices/status/keyboard/event/pressed") or 0;
-	var du = getprop("/controls/Honda-RC213V/driver-up") or 0;
-	#helper turn shoulder to look back
-	if(cv == 0 and !du){
-		if(apos == 49 and press){
-			setprop("/sim/current-view/heading-offset-deg", 160);
-			setprop("/controls/Honda-RC213V/driver-looks-back",1);
-		}else{
-			setprop("/sim/current-view/heading-offset-deg", 0);
-			setprop("/controls/Honda-RC213V/driver-looks-back",0);
-		}
-	}
 
 	# properties for ABS and SCS at the bottom of this script
 	var comp_m = getprop("/gear/gear[1]/compression-m") or 0;
@@ -149,22 +134,22 @@ var loop = func {
 			vmax = 0;
 			fastcircuit.setValue(0);
 		} else if (gear.getValue() == 1) {
-			vmax = 60;
+			vmax = 65;
 			fastcircuit.setValue(0.1);
 		} else if (gear.getValue() == 2) {
-			vmax =  80;
+			vmax =  85;
 			fastcircuit.setValue(0.2);
 		} else if (gear.getValue() == 3) {
-			vmax = 110;
+			vmax = 115;
 			fastcircuit.setValue(0.3);
 		} else if (gear.getValue() == 4) {
-			vmax = 155;
+			vmax = 160;
 			fastcircuit.setValue(0.4);
 		} else if (gear.getValue() == 5) {
-			vmax = 174;
+			vmax = 180;
 			fastcircuit.setValue(0.5);
 		} else if (gear.getValue() == 6) {
-			vmax = 210;
+			vmax = 213;
 			fastcircuit.setValue(0.6);
 		}
 

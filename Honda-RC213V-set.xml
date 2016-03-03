@@ -319,6 +319,8 @@ and have fun!</text>
 		<path>/controls/Honda-RC213V/old-mens-mode</path>
 		<path>/instrumentation/Honda-RC213V/distance-calculator/mzaehler</path>
 		<path>/controls/hang-off-speed</path>
+		<path>/controls/hang-off-view-deg</path>
+		<path>/controls/steering-damper</path>
 		<path>/controls/fuel/remember-level</path>
 	</aircraft-data> 
 	<current-view>
