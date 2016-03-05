@@ -6,7 +6,7 @@
 var config_dlg = gui.Dialog.new("/sim/gui/dialogs/config/dialog", getprop("/sim/aircraft-dir")~"/Systems/config.xml");
 var hangoffspeed = props.globals.initNode("/controls/hang-off-speed",80,"DOUBLE");
 var hangoffviewdeg = props.globals.initNode("/controls/hang-off-view-deg",0,"DOUBLE");
-var steeringdamper = props.globals.initNode("/controls/steering-damper",0.1,"DOUBLE");
+var steeringdamper = props.globals.initNode("/controls/steering-damper",1,"DOUBLE");
 var waiting = props.globals.initNode("/controls/waiting",0,"DOUBLE");
 
 ################## Little Help Window on bottom of screen #################
@@ -39,7 +39,8 @@ var forkcontrol = func{
 			f.setValue(r);
 		}
 	}else{
-		f.setValue(r);
+		var sensibility_fork = steeringdamper.getValue()*0.03;
+		interpolate("/controls/flight/fork", r, sensibility_fork);
 	}
 	if(bs > 40){
 		setprop("/controls/gear/brake-front", bl);
@@ -101,6 +102,11 @@ var forkcontrol = func{
 };
 
 forkcontrol();
+
+# --- Help window for steering damper setting ---
+setlistener("/controls/steering-damper", func (sd){
+	help_win.write(sprintf("Steering damper setting: %.0f clicks", sd.getValue()));
+},1,0);
 
 
 var temp_fake_calc = func{
@@ -168,7 +174,8 @@ setlistener("/controls/flight/aileron", func (position){
 			var np = math.round(position*position*position*100);
 			np = np/100;
 			#print("NP: ", np);
-			var sensibility = (np == 0 or abs(np) < steeringdamper.getValue()) ? steeringdamper.getValue() : abs(np);
+			# the *0.0625 is the calculation number for the 16clicks Oehlins steering damper
+			var sensibility = (np == 0 or abs(np) < steeringdamper.getValue()*0.0625) ? steeringdamper.getValue()*0.0625 : abs(np);
 			interpolate("/controls/flight/aileron-manual", np, sensibility);
 		}
 	}

@@ -213,7 +213,6 @@
   	      <halign>right</halign>
   	    </text>
   	  </group>	  
-	  <hrule/>
 	  <hrule/>	
 	    
       <group>
@@ -227,78 +226,97 @@
           </binding>
         </button>
       </group>
-	  	  
+
+	  <hrule/>	  
 	  <hrule/>
 
   	  <group>
   	    <layout>hbox</layout>
-  	    <slider>
+  	    <slider>		  
+		  <row>0</row>
+		  <col>0</col>
+  	      <halign>left</halign>
   	      <property>/controls/hang-off-speed</property>
   	      <binding>
 			  <command>dialog-apply</command>
 		  </binding>
   	      <min>0.0</min>
 		  <max>320.0</max>
-  	      <halign>left</halign>
   	    </slider>
   	    <text>
+  		  <row>0</row>
+  		  <col>0</col>
+    	  <halign>left</halign>
   	      <property>/controls/hang-off-speed</property>
   	      <label>0123456</label>
   	      <format>%.1f</format>
-  	      <live>1</live>
-  	      <halign>right</halign>
+  	      <live>true</live>
   	    </text>
-  	    <text>
-  	      <label>max. hang-off speed in mph</label>
-  	      <halign>right</halign>
+  	    <text>  		 
+		  <row>0</row>
+  		  <col>1</col>
+    	  <halign>right</halign>
+  	      <label>............... max . hang-off speed in mph</label>
   	    </text>
   	  </group>
 
   	  <group>
   	    <layout>hbox</layout>
-  	    <slider>
+  	    <slider>  		  
+		  <row>1</row>
+  		  <col>0</col>
+    	  <halign>left</halign>
   	      <property>/controls/hang-off-view-deg</property>
   	      <binding>
 			  <command>dialog-apply</command>
 		  </binding>
   	      <min>0.0</min>
 		  <max>90.0</max>
-  	      <halign>left</halign>
   	    </slider>
-  	    <text>
+  	    <text>  		  
+		  <row>1</row>
+  		  <col>0</col>
+    	  <halign>left</halign>
   	      <property>/controls/hang-off-view-deg</property>
   	      <label>0123456</label>
-  	      <format>%.1f</format>
-  	      <live>1</live>
-  	      <halign>right</halign>
+  	      <format>%1.0f</format>
+  	      <live>true</live>
   	    </text>
-  	    <text>
-  	      <label>max. hang-off view angle</label>
-  	      <halign>right</halign>
+  	    <text>  		  
+		  <row>1</row>
+  		  <col>1</col>
+    	  <halign>right</halign>
+  	      <label>................... max . hang-off view angle</label>
   	    </text>
   	  </group>	
 	  
   	  <group>
   	    <layout>hbox</layout>
-  	    <slider>
+  	    <slider>  		  
+		  <row>2</row>
+  		  <col>0</col>
+    	  <halign>left</halign>
   	      <property>/controls/steering-damper</property>
   	      <binding>
 			  <command>dialog-apply</command>
 		  </binding>
-  	      <min>0.1</min>
-		  <max>1.0</max>
-  	      <halign>left</halign>
+  	      <min>1</min>
+		  <max>16</max>
   	    </slider>
-  	    <text>
+  	    <text>  		  
+		  <row>2</row>
+  		  <col>0</col>
+    	  <halign>left</halign>
   	      <property>/controls/steering-damper</property>
   	      <label>0123456</label>
-  	      <format>%.2f</format>
+  	      <format>%1.0f</format>
   	      <live>1</live>
-  	      <halign>right</halign>
   	    </text>
-  	    <text>
-  	      <label>steering damper</label>
-  	      <halign>right</halign>
+  	    <text>  		  
+		  <row>2</row>
+  		  <col>1</col>
+    	  <halign>right</halign>
+  	      <label>...... 16clicks Oehlins steering damper</label>
   	    </text>
   	  </group>	   	  
   <hrule/>

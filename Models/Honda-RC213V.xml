@@ -27,6 +27,8 @@
 
   <animation>
     <type>material</type>
+    <object-name>oehlinssup</object-name>
+    <object-name>oehlinssup.001</object-name>
     <object-name>carrd</object-name>
     <object-name>carrd01</object-name>
     <object-name>carrd03</object-name>
@@ -175,7 +177,17 @@
       <roll-deg> -42 </roll-deg>
     </offsets>
   </model>
-
+  
+  <model>
+	<name>OEHLINS</name>
+    <path>Aircraft/Honda-RC213V/Models/Instruments/oehlins/oehlins.xml</path>
+    <offsets>
+        <x-m> -0.46 </x-m>
+        <y-m> 0.0</y-m>
+        <z-m> 0.91 </z-m>
+    </offsets>
+  </model>
+  
   <animation>
     <type>select</type>
     <object-name>TRANSPONDER</object-name>
@@ -282,8 +294,11 @@
       <object-name>SI</object-name>
       <object-name>SL</object-name>
       <object-name>TRANSPONDER</object-name>
+      <object-name>OEHLINS</object-name>
       <object-name>Driver</object-name>
       <object-name>Driver_quick_glance_over_shoulder</object-name>
+      <object-name>oehlinssup</object-name>
+      <object-name>oehlinssup.001</object-name>
       <object-name>carrd</object-name>
       <object-name>carrd01</object-name>
       <object-name>carrd03</object-name>
@@ -358,8 +373,11 @@
         <object-name>SI</object-name>
         <object-name>SL</object-name>
         <object-name>TRANSPONDER</object-name>
+        <object-name>OEHLINS</object-name>
         <object-name>Driver</object-name>
         <object-name>Driver_quick_glance_over_shoulder</object-name>
+        <object-name>oehlinssup</object-name>
+        <object-name>oehlinssup.001</object-name>
         <object-name>carrd</object-name>
         <object-name>carrd01</object-name>
         <object-name>carrd03</object-name>
@@ -430,6 +448,8 @@
     <animation>
   	  <type>rotate</type>
         <object-name>SL</object-name>
+        <object-name>OEHLINS</object-name>
+        <object-name>oehlinssup.001</object-name>
         <object-name>carrd05</object-name>
         <object-name>carrd06</object-name>
         <object-name>carrd07</object-name>
