@@ -221,7 +221,7 @@ var loop = func {
 		if(engine_rpm_regulation.getValue() == 1 and rpm.getValue() > maxrpm-1500){
 			propulsion.setValue(0);
 			if (speed > 20) engine_brake.setValue(0.8);
-			rpm.setValue(maxrpm-1000);
+			rpm.setValue(maxrpm-1500);
 			setprop("/controls/Honda-RC213V/ctrl-light-overspeed", 1);
 		}else{
 			setprop("/controls/Honda-RC213V/ctrl-light-overspeed", 0);
