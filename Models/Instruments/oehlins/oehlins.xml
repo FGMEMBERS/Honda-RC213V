@@ -38,7 +38,7 @@
 		<type>rotate</type>
 		<object-name>setting</object-name>
 		<property>/controls/steering-damper</property>
-		<factor>20</factor>
+		<factor>-20</factor>
 		<center>
 			<x-m> -0.0127</x-m>
 			<y-m> 0</y-m>

@@ -267,8 +267,9 @@ setlistener("/controls/engines/engine[0]/throttle", func (position){
 
 setlistener("/gear/gear/rollspeed-ms", func (speed){
     var speed = speed.getValue();
+	var crnw = getprop("/sim/crashed") or 0;
     # only for manipulate the reset m function 
-	if (speed > 5) setprop("/controls/waiting", 1);
+	if (speed > 20 and !crnw) setprop("/controls/waiting", 1);
 	if(getprop("/instrumentation/Honda-RC213V/speed-indicator/selection")){
 		if(speed > 0.1){
 			setprop("/instrumentation/Honda-RC213V/speed-indicator/speed-meter", speed*3600/1000*0.621371); # mph

@@ -183,7 +183,7 @@
 	  <condition>
 	    <equals>
 	      <property>sim/model/livery/file</property>
-	      <value>tinmouth</value>
+	      <value>simoncelli</value>
 	    </equals>
 	  </condition>
   </animation>
