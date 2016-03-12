@@ -135,6 +135,20 @@ var wp1bo = [48.85188861,10.33185324,614.0,"Start/Ziel"];
 # Ground Marker Position Steilkurve - lat,lon,alt in meter
 var wp2bo = [48.85034821,10.33039495,617.0,"Steilkurve"];
 
+##### Qatar - Losail 
+
+# Ground Marker Position FINISH - lat,lon,alt in meter
+var wp1qa = [25.48970916,51.4493161,13,"Sector1"];
+
+# Ground Marker Sector2 - lat,lon,alt in meter
+var wp2qa = [25.49535439,51.45160623,13,"Sector2"];
+
+# Ground Marker Sector3 - lat,lon,alt in meter
+var wp3qa = [25.49350442,51.45635975,13,"Sector3"];
+
+# Ground Marker Sector4 - lat,lon,alt in meter
+var wp4qa = [25.48741014,51.45941919,13,"Sector4"];
+
 var pa = "TT";
 var sectors = sectors_tt = [wp1tt, wp2tt, wp3tt, wp4tt, wp5tt, wp6tt];
 var sectors_s100 = [wp1s, wp2s, wp3s];
@@ -147,6 +161,7 @@ var sectors_mf = [wp1mf, wp2mf];
 var sectors_cc = [wp1cc, wp2cc];
 var sectors_ct = [wp1ct, wp2ct, wp3ct];
 var sectors_bo = [wp1bo, wp2bo];
+var sectors_qa = [wp1qa, wp2qa, wp3qa, wp4qa];
 
 ############################ helper for view ####################################
 var show_helper = func(s) {
@@ -394,6 +409,9 @@ var find_marker = func{
 	
 	marker_wp_pos.set_latlon(wp1bo[0], wp1bo[1]);
 	var dis_to_BO = marker_wp_pos.distance_to(mypos);
+	
+	marker_wp_pos.set_latlon(wp1qa[0], wp1qa[1], wp1qa[2], wp1qa[3]);
+	var dis_to_QA = marker_wp_pos.distance_to(mypos);
 		
 	if(dis_to_TT < 10000){   # if we are far away - 10km - from the Isle of Man stop script
 		#print("We are on the Isle of Man");
@@ -439,6 +457,10 @@ var find_marker = func{
 		#print("Bopfingen - Germany");
 		sectors = sectors_bo;
 		pa = "BO";
+	}else if(dis_to_QA < 10000){
+		#print("Qatar - Losail-Circuit");
+		sectors = sectors_qa;
+		pa = "QA";
 	}
 
 	# newbies have red jackets
