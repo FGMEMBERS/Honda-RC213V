@@ -254,7 +254,7 @@
           <default>false</default>
           <binding>
             <command>nasal</command>
-            <script>bmw.clear_race_datas();</script>
+            <script>honda.clear_race_datas();</script>
           </binding>
         </button>
       </group>
