@@ -49,7 +49,7 @@ var forkcontrol = func{
 		setprop("/controls/gear/brake-front", 0);
 	}
 	
-	# shoulder view helper
+	# shoulder view helper and hang off
 	var cv = getprop("sim/current-view/view-number") or 0;
 	var apos = getprop("/devices/status/keyboard/event/key") or 0;
 	var press = getprop("/devices/status/keyboard/event/pressed") or 0;
@@ -62,19 +62,19 @@ var forkcontrol = func{
 		}else{
 			var hdgpos = 0;
 		    var posi = getprop("/controls/flight/aileron-manual") or 0;			
-			var sceneryposi = posi*45;
+			var sceneryposi = (posi < 0) ? -(posi*posi*45) : posi*posi*45;
 			if(sceneryposi > 0){
 				sceneryposi = (sceneryposi > 18) ? 18 : sceneryposi;
 			}else{
 				sceneryposi = (sceneryposi < -18) ? -18 : sceneryposi;
 			}
 		  	if(posi > 0.0001 and getprop("/controls/hangoff") == 1){
-				hdgpos = 360 - 60*posi;
+				hdgpos = 360 - 60*posi*posi;
 				hdgpos = (hdgpos < (360 - hangoffviewdeg.getValue())) ? 360 - hangoffviewdeg.getValue() : hdgpos;
 		  		setprop("/sim/current-view/goal-heading-offset-deg", hdgpos);
 				setprop("/sim/current-view/goal-roll-offset-deg", sceneryposi);
 		  	}else if (posi < -0.0001 and getprop("/controls/hangoff") == 1){
-				hdgpos = 60*abs(posi);
+				hdgpos = 60*abs(posi)*abs(posi);
 				hdgpos = (hdgpos > hangoffviewdeg.getValue()) ? hangoffviewdeg.getValue() : hdgpos;
 		  		setprop("/sim/current-view/goal-heading-offset-deg", hdgpos);
 				setprop("/sim/current-view/goal-roll-offset-deg", sceneryposi);
@@ -215,7 +215,7 @@ setlistener("/surface-positions/left-aileron-pos-norm", func{
 				if(onwork == 0){
 					settimer(func{setprop("/controls/hangoff",1)},0.1);
 					interpolate("/sim/current-view/x-offset-m", math.sin(factor*2.0)*(1.34+driverpos/5),0.1);
-					interpolate("/sim/current-view/y-offset-m", math.cos(factor*2.4)*(1.36 - godown/1300 + lookup/12 + driverpos/4),0.1);
+					interpolate("/sim/current-view/y-offset-m", math.cos(factor*2.4)*(1.36 - godown/1300 + lookup/12 + driverpos),0.1);
 				}else{
 					setprop("/sim/current-view/x-offset-m", math.sin(factor*2.0)*(1.34+driverpos/5));
 					setprop("/sim/current-view/y-offset-m", math.cos(factor*2.4)*(1.36 - godown/1300 + lookup/12 + driverpos/4));
@@ -406,7 +406,7 @@ setlistener("sim/model/start-idling", func()
 			help_win_red.write("Is everything ok with you?");
 		}else{
 			help_win_red.write("5 SECONDS WAITING FOR REPLACEMENT!");
-			settimer(func{setprop("/controls/waiting", 0)}, 3);
+			settimer(func{setprop("/controls/waiting", 0)}, 1);
 		}
    }
   }, 1, 1);

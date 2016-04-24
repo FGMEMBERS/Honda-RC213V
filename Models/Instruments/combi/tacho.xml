@@ -64,7 +64,27 @@
 		<object-name>d-zkm.001</object-name>
 		<object-name>d-hkm.001</object-name>
 		<object-name>d-tkm.001</object-name>
-		<object-name>d-ztkm.001</object-name>		
+		<object-name>d-ztkm.001</object-name>		 
+		<object-name>t-h-1.002</object-name>
+		 <object-name>t-h-10.002</object-name>
+		 <object-name>t-s-01</object-name>
+		 <object-name>t-s-1</object-name>
+		 <object-name>t-s-10</object-name>
+		 <object-name>t-m-1</object-name>
+		 <object-name>t-m-10</object-name>
+		 <object-name>t-s-01.001</object-name>
+		 <object-name>t-s-1.001</object-name>
+		 <object-name>t-s-10.001</object-name>
+		 <object-name>t-m-1.001</object-name>
+		 <object-name>t-m-plus.001</object-name>
+		 <object-name>t-m-minus.001</object-name>
+		 <object-name>t-s-01.002</object-name>
+		 <object-name>t-s-1.002</object-name>
+		 <object-name>t-s-10.002</object-name>
+		 <object-name>t-m-1.002</object-name>
+		 <object-name>t-m-10.001</object-name>
+		 <object-name>t-m-10.002</object-name>
+		 <object-name>dots</object-name>
 	</animation>
 		
 	<effect>
@@ -85,12 +105,33 @@
 		<object-name>d-zkm.001</object-name>
 		<object-name>d-hkm.001</object-name>
 		<object-name>d-tkm.001</object-name>
-		<object-name>d-ztkm.001</object-name>
+		<object-name>d-ztkm.001</object-name>		 
+		<object-name>t-h-1.002</object-name>
+		 <object-name>t-h-10.002</object-name>
+		 <object-name>t-s-01</object-name>
+		 <object-name>t-s-1</object-name>
+		 <object-name>t-s-10</object-name>
+		 <object-name>t-m-1</object-name>
+		 <object-name>t-m-10</object-name>
+		 <object-name>t-s-01.001</object-name>
+		 <object-name>t-s-1.001</object-name>
+		 <object-name>t-s-10.001</object-name>
+		 <object-name>t-m-1.001</object-name>
+		 <object-name>t-m-plus.001</object-name>
+		 <object-name>t-m-minus.001</object-name>
+		 <object-name>t-s-01.002</object-name>
+		 <object-name>t-s-1.002</object-name>
+		 <object-name>t-s-10.002</object-name>
+		 <object-name>t-m-1.002</object-name>
+		 <object-name>t-m-10.001</object-name>
+		 <object-name>t-m-10.002</object-name>
+		 <object-name>dots</object-name>
 	</effect>
 
     <animation>
       <type>select</type>		 
 	  	 <object-name>scs</object-name>
+		 <object-name>oil.btn</object-name>
       <condition>
 		  <or>
 	        <not>
@@ -206,6 +247,9 @@
       </condition>
     </animation>
 -->
+		
+		
+		
    	 <animation>
    	    <type>textranslate</type>
    	    <object-name>digit-1</object-name>
@@ -260,9 +304,56 @@
                <y>0</y>
                <z>0</z>
            </axis>
+       </animation>	   
+	   
+       <animation>
+         <type>select</type>		 
+	 	<object-name>d-hms</object-name>
+	 	<object-name>d-km</object-name>
+	 	<object-name>d-zkm</object-name>
+	 	<object-name>d-hkm</object-name>
+	 	<object-name>d-tkm</object-name>
+	 	<object-name>d-ztkm</object-name>
+	 	<object-name>d-hms.001</object-name>
+	 	<object-name>d-km.001</object-name>
+	 	<object-name>d-zkm.001</object-name>
+	 	<object-name>d-hkm.001</object-name>
+	 	<object-name>d-tkm.001</object-name>
+	 	<object-name>d-ztkm.001</object-name>
+         <condition>
+   	        <not>
+				<property>instrumentation/Honda-RC213V/race-mode/selection</property>
+   	        </not>
+         </condition>
        </animation>
 	   
-	   
+       <animation>
+         <type>select</type>		 
+		 <object-name>t-h-1.002</object-name>
+		 <object-name>t-h-10.002</object-name>
+		 <object-name>t-s-01</object-name>
+		 <object-name>t-s-1</object-name>
+		 <object-name>t-s-10</object-name>
+		 <object-name>t-m-1</object-name>
+		 <object-name>t-m-10</object-name>
+		 <object-name>t-s-01.001</object-name>
+		 <object-name>t-s-1.001</object-name>
+		 <object-name>t-s-10.001</object-name>
+		 <object-name>t-m-1.001</object-name>
+		 <object-name>t-m-plus.001</object-name>
+		 <object-name>t-m-minus.001</object-name>
+		 <object-name>t-s-01.002</object-name>
+		 <object-name>t-s-1.002</object-name>
+		 <object-name>t-s-10.002</object-name>
+		 <object-name>t-m-1.002</object-name>
+		 <object-name>t-m-10.001</object-name>
+		 <object-name>t-m-10.002</object-name>
+		 <object-name>dots</object-name>
+         <condition>
+   	        <property>instrumentation/Honda-RC213V/race-mode/selection</property>
+         </condition>
+       </animation>	   
+
 	   <!-- distance digits -->
 	   	 <animation>
 	   	    <type>textranslate</type>
@@ -458,6 +549,257 @@
    	        <z>0</z>
    	    </axis>
    	</animation>
+	
+	
+	<!-- transponder actual sector -->
+  	 <animation>
+  	    <type>textranslate</type>
+  	    <object-name>t-s-01</object-name>
+  	    <property>Honda-RC213V/this-sector-time-sec</property>
+  	    <factor>1</factor>
+  	    <step>0.1</step>
+  	    <bias>0.005</bias>
+  	    <axis>
+  	        <x>1</x>
+  	        <y>0</y>
+  	        <z>0</z>
+  	    </axis>
+  	</animation>
+ 	 <animation>
+ 	    <type>textranslate</type>
+ 	    <object-name>t-s-1</object-name>
+ 	    <property>Honda-RC213V/this-sector-time-sec</property>
+ 	    <factor>0.1</factor>
+ 	    <step>1</step>
+ 	    <bias>0.005</bias>
+ 	    <axis>
+ 	        <x>1</x>
+ 	        <y>0</y>
+ 	        <z>0</z>
+ 	    </axis>
+ 	</animation>
+ 	 <animation>
+ 	    <type>textranslate</type>
+ 	    <object-name>t-s-10</object-name>
+ 	    <property>Honda-RC213V/this-sector-time-sec</property>
+ 	    <factor>0.01</factor>
+ 	    <step>10</step>
+ 	    <bias>0.005</bias>
+ 	    <axis>
+ 	        <x>1</x>
+ 	        <y>0</y>
+ 	        <z>0</z>
+ 	    </axis>
+ 	</animation>
+ 	 <animation>
+ 	    <type>textranslate</type>
+ 	    <object-name>t-m-1</object-name>
+ 	    <property>Honda-RC213V/this-sector-time-min</property>
+ 	    <factor>0.1</factor>
+ 	    <step>1</step>
+ 	    <bias>0.005</bias>
+ 	    <axis>
+ 	        <x>1</x>
+ 	        <y>0</y>
+ 	        <z>0</z>
+ 	    </axis>
+ 	</animation>
+ 	 <animation>
+ 	    <type>textranslate</type>
+ 	    <object-name>t-m-10</object-name>
+ 	    <property>Honda-RC213V/this-sector-time-min</property>
+ 	    <factor>0.01</factor>
+ 	    <step>10</step>
+ 	    <bias>0.005</bias>
+ 	    <axis>
+ 	        <x>1</x>
+ 	        <y>0</y>
+ 	        <z>0</z>
+ 	    </axis>
+ 	</animation>
+		
+	<!-- differenz between fastest sector and actual time -->
+    <animation>
+      <type>select</type>
+		 <object-name>t-m-minus.001</object-name>
+      <condition>  
+			 <greater-than>
+	          	<property>Honda-RC213V/this-lap-time-diff</property>
+			  	<value>0</value>
+	        </greater-than>
+      </condition>
+    </animation>
+	
+    <animation>
+      <type>select</type>
+		 <object-name>t-m-plus.001</object-name>
+      <condition>  
+			 <less-than>
+	          	<property>Honda-RC213V/this-lap-time-diff</property>
+			  	<value>0</value>
+	        </less-than>
+      </condition>
+    </animation>
+	
+ 	 <animation>
+ 	    <type>textranslate</type>
+ 	    <object-name>t-s-01.001</object-name>
+ 	    <property>Honda-RC213V/this-lap-time-diff-s</property>
+ 	    <factor>1</factor>
+ 	    <step>0.1</step>
+ 	    <bias>0.005</bias>
+ 	    <axis>
+ 	        <x>1</x>
+ 	        <y>0</y>
+ 	        <z>0</z>
+ 	    </axis>
+ 	</animation>
+	 <animation>
+	    <type>textranslate</type>
+	    <object-name>t-s-1.001</object-name>
+	    <property>Honda-RC213V/this-lap-time-diff-s</property>
+	    <factor>0.1</factor>
+	    <step>1</step>
+	    <bias>0.005</bias>
+	    <axis>
+	        <x>1</x>
+	        <y>0</y>
+	        <z>0</z>
+	    </axis>
+	</animation>
+	 <animation>
+	    <type>textranslate</type>
+	    <object-name>t-s-10.001</object-name>
+	    <property>Honda-RC213V/this-lap-time-diff-s</property>
+	    <factor>0.01</factor>
+	    <step>10</step>
+	    <bias>0.005</bias>
+	    <axis>
+	        <x>1</x>
+	        <y>0</y>
+	        <z>0</z>
+	    </axis>
+	</animation>
+	 <animation>
+	    <type>textranslate</type>
+	    <object-name>t-m-1.001</object-name>
+	    <property>Honda-RC213V/this-lap-time-diff-m</property>
+	    <factor>0.1</factor>
+	    <step>1</step>
+	    <bias>0.005</bias>
+	    <axis>
+	        <x>1</x>
+	        <y>0</y>
+	        <z>0</z>
+	    </axis>
+	</animation>
+	
+  	 <animation>
+  	    <type>textranslate</type>
+  	    <object-name>t-m-10.001</object-name>
+  	    <property>Honda-RC213V/this-lap-time-diff-m</property>
+  	    <factor>1</factor>
+  	    <step>0.1</step>
+  	    <bias>0.005</bias>
+  	    <axis>
+  	        <x>1</x>
+  	        <y>0</y>
+  	        <z>0</z>
+  	    </axis>
+  	</animation>
+ 	 
+	<!-- transponder actual lap time -->
+  	 <animation>
+  	    <type>textranslate</type>
+  	    <object-name>t-s-01.002</object-name>
+  	    <property>Honda-RC213V/this-lap-time-sec</property>
+  	    <factor>1</factor>
+  	    <step>0.1</step>
+  	    <bias>0.005</bias>
+  	    <axis>
+  	        <x>1</x>
+  	        <y>0</y>
+  	        <z>0</z>
+  	    </axis>
+  	</animation>
+ 	 <animation>
+ 	    <type>textranslate</type>
+ 	    <object-name>t-s-1.002</object-name>
+ 	    <property>Honda-RC213V/this-lap-time-sec</property>
+ 	    <factor>0.1</factor>
+ 	    <step>1</step>
+ 	    <bias>0.005</bias>
+ 	    <axis>
+ 	        <x>1</x>
+ 	        <y>0</y>
+ 	        <z>0</z>
+ 	    </axis>
+ 	</animation>
+ 	 <animation>
+ 	    <type>textranslate</type>
+ 	    <object-name>t-s-10.002</object-name>
+ 	    <property>Honda-RC213V/this-lap-time-sec</property>
+ 	    <factor>0.01</factor>
+ 	    <step>10</step>
+ 	    <bias>0.005</bias>
+ 	    <axis>
+ 	        <x>1</x>
+ 	        <y>0</y>
+ 	        <z>0</z>
+ 	    </axis>
+ 	</animation>
+ 	 <animation>
+ 	    <type>textranslate</type>
+ 	    <object-name>t-m-1.002</object-name>
+ 	    <property>Honda-RC213V/this-lap-time-min</property>
+ 	    <factor>0.1</factor>
+ 	    <step>1</step>
+ 	    <bias>0.005</bias>
+ 	    <axis>
+ 	        <x>1</x>
+ 	        <y>0</y>
+ 	        <z>0</z>
+ 	    </axis>
+ 	</animation>
+ 	 <animation>
+ 	    <type>textranslate</type>
+ 	    <object-name>t-m-10.002</object-name>
+ 	    <property>Honda-RC213V/this-lap-time-min</property>
+ 	    <factor>0.01</factor>
+ 	    <step>10</step>
+ 	    <bias>0.005</bias>
+ 	    <axis>
+ 	        <x>1</x>
+ 	        <y>0</y>
+ 	        <z>0</z>
+ 	    </axis>
+ 	</animation>	
+	 <animation>
+	    <type>textranslate</type>
+	    <object-name>t-h-1.002</object-name>
+	    <property>Honda-RC213V/this-lap-time-hour</property>
+	    <factor>0.1</factor>
+	    <step>1</step>
+	    <bias>0.005</bias>
+	    <axis>
+	        <x>1</x>
+	        <y>0</y>
+	        <z>0</z>
+	    </axis>
+	</animation>
+	 <animation>
+	    <type>textranslate</type>
+	    <object-name>t-h-10.002</object-name>
+	    <property>Honda-RC213V/this-lap-time-hour</property>
+	    <factor>0.01</factor>
+	    <step>10</step>
+	    <bias>0.005</bias>
+	    <axis>
+	        <x>1</x>
+	        <y>0</y>
+	        <z>0</z>
+	    </axis>
+	</animation>
 
 <!-- selection -->
       <animation>
@@ -476,7 +818,41 @@
               </binding>           
           </action>
       </animation>	
-
+	  
+      <animation>
+          <type>pick</type>
+          <object-name>srpmop.002</object-name>
+  		<visible>false</visible>
+          <action>
+   	    <button>0</button>
+              <binding>	    
+  	    	  <command>property-toggle</command>
+  			<property>instrumentation/Honda-RC213V/race-mode/selection</property>
+  			<step>1</step>
+  			<min>0</min>
+  			<max>1</max>
+  			<wrap>1</wrap>		
+              </binding>           
+          </action>
+      </animation>	
+	  
+      <animation>
+          <type>pick</type>
+          <object-name>srpmop.003</object-name>
+  		<visible>false</visible>
+          <action>
+   	    <button>0</button>
+              <binding>	    
+  	    	  <command>property-toggle</command>
+  			<property>instrumentation/Honda-RC213V/race-mode/selection</property>
+  			<step>1</step>
+  			<min>0</min>
+  			<max>1</max>
+  			<wrap>1</wrap>		
+              </binding>           
+          </action>
+      </animation>	
+	  
 	<animation>
 	  <type>rotate</type>
 	  <object-name>RPM.Needle</object-name>

@@ -10,6 +10,9 @@ var thissector = props.globals.getNode("/Honda-RC213V/this-sector");
 var sectortime = props.globals.getNode("/Honda-RC213V/this-sector-time");
 var laptime = props.globals.getNode("/Honda-RC213V/this-lap-time");
 var racetime = props.globals.getNode("/Honda-RC213V/this-race-time");
+var laptimediff = props.globals.initNode("/Honda-RC213V/this-lap-time-diff",0,"DOUBLE");
+var laptimediffmin = props.globals.initNode("/Honda-RC213V/this-lap-time-diff-m",0,"DOUBLE");
+var laptimediffsec = props.globals.initNode("/Honda-RC213V/this-lap-time-diff-s",0,"DOUBLE");
 var inrange = 0;
 
 ################# Geo coordinates from the sector start points ############
@@ -590,6 +593,11 @@ var find_marker = func{
 		var lastsectorendtime = getprop("/Honda-RC213V/"~pa~"/sector["~thissector.getValue()~"]/start-time") or 0;
 		var lasttime = (lastsectorstarttime != 0 and lastsectorendtime !=0 and (lastsectorendtime - lastsectorstarttime) > 0 ) ? lastsectorendtime - lastsectorstarttime : 0;
 		setprop("/Honda-RC213V/"~pa~"/sector["~ln~"]/last-time", lasttime);
+		
+		# show the difference to the fastest sectortime
+		var ldiff = (fastesttime > 0 and thissector.getValue() > 0) ? fastesttime - lasttime : 0;
+		ldiff = (thissector.getValue() == 1) ? ldiff : laptimediff.getValue() + ldiff;
+		
 		if(lasttime > 0 and lasttime < fastesttime or fastesttime == 0) setprop("/Honda-RC213V/"~pa~"/sector["~ln~"]/fastest-time", lasttime);
 		
 		if(thissector.getValue() == 0){
@@ -602,10 +610,21 @@ var find_marker = func{
 		  }
 		  setprop("/Honda-RC213V/last-lap-time", totallapresult);
 		  var fastestlap = getprop("/Honda-RC213V/"~pa~"/fastest-lap") or 0;
+		  
+		  # if actual time is less than fastest laptime
+		  ldiff = (racelap.getValue() > 0) ? fastestlap - totallapresult : 0;
+		  ######
+		  
 		  if(totallapresult > 0 and totallapresult < fastestlap or fastestlap == 0) setprop("/Honda-RC213V/"~pa~"/fastest-lap", totallapresult);
 		  setprop("/Honda-RC213V/"~pa~"/lap["~racelap.getValue()~"]/actual-time", totallapresult);
 		  racelap.setValue(racelap.getValue() + 1);
 		}
+		
+		# show the difference to the fastest even sectortime odd laptime
+		var resultldiff = calc_time(abs(ldiff));
+		setprop("/Honda-RC213V/this-lap-time-diff-s", resultldiff[0]);
+		setprop("/Honda-RC213V/this-lap-time-diff-m", resultldiff[1]);
+		laptimediff.setValue(ldiff);
 		
 		thissector.setValue(thissector.getValue() + 1);
 	}
