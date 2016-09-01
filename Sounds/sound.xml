@@ -26,6 +26,9 @@
 	    <path>Aircraft/Honda-RC213V/Sounds/engine-high.wav</path>
 	    <mode>looped</mode>
  	     <condition>
+  	     <not>
+			 <property>/controls/Honda-RC213V/Akrapovic/fit</property>
+		 </not>
 		 <greater-than>
  	      	   <property>/engines/engine/rpm</property>
 		   <value>3000</value>
@@ -49,6 +52,38 @@
 	    <max-dist>500</max-dist>
 	  </engine>
 
+  	<engine>
+  	    <name>enginehightAkra</name>
+  	    <path>Aircraft/Honda-RC213V/Sounds/engine-high.wav</path>
+  	    <mode>looped</mode>
+   	     <condition>
+		 <equals>
+  	     	<property>/controls/Honda-RC213V/Akrapovic/fit</property>
+			<value>true</value>
+	 	 </equals>
+  		 <greater-than>
+   	      	   <property>/engines/engine/rpm</property>
+  		   <value>3000</value>
+  	   </greater-than>
+   	    </condition>
+  	    <volume>
+  	      <property>/engines/engine/mp-osi</property>
+  	      <factor>0.04</factor>
+  	      <min>0.9</min>
+  	      <max>8</max>
+  	      <offset>0.001</offset>
+  	    </volume>
+  	    <pitch>
+  	      <property>/engines/engine/rpm</property>
+  	      <factor>0.00010</factor>
+  	      <min>0.001</min>
+  	      <max>5.5</max>
+  	      <offset>0.012</offset>
+  	    </pitch>
+  	    <reference-dist>180</reference-dist>
+  	    <max-dist>500</max-dist>
+  	  </engine>
+	  
   	<engine>
   	    <name>enginecrash</name>
   	    <path>Aircraft/Honda-RC213V/Sounds/broken.wav</path>

@@ -38,6 +38,7 @@ var speedlimstate = props.globals.getNode("/instrumentation/Honda-RC213V/speed-i
 var speed = 0;
 var gspeed = 0;
 var ascon = props.globals.initNode("/controls/Honda-RC213V/SCS/on-off",1,"BOOL");
+var akrapovic = props.globals.initNode("/controls/Honda-RC213V/Akrapovic/fit",0,"BOOL");
 
 ###########################################################################
 
@@ -129,28 +130,54 @@ var loop = func {
 		}
 
 		# max speed per gear in kts
-		if (gear.getValue() == 0) {
-			vmax = 0;
-			fastcircuit.setValue(0);
-		} else if (gear.getValue() == 1) {
-			vmax = 70;
-			fastcircuit.setValue(0.1);
-		} else if (gear.getValue() == 2) {
-			vmax =  100;
-			fastcircuit.setValue(0.2);
-		} else if (gear.getValue() == 3) {
-			vmax = 130;
-			fastcircuit.setValue(0.3);
-		} else if (gear.getValue() == 4) {
-			vmax = 160;
-			fastcircuit.setValue(0.4);
-		} else if (gear.getValue() == 5) {
-			vmax = 190;
-			fastcircuit.setValue(0.5);
-		} else if (gear.getValue() == 6) {
-			vmax = 225;
-			fastcircuit.setValue(0.6);
+		if(akrapovic.getValue()){
+			if (gear.getValue() == 0) {
+				vmax = 0;
+				fastcircuit.setValue(0);
+			} else if (gear.getValue() == 1) {
+				vmax = 78;
+				fastcircuit.setValue(0.1);
+			} else if (gear.getValue() == 2) {
+				vmax =  115;
+				fastcircuit.setValue(0.2);
+			} else if (gear.getValue() == 3) {
+				vmax = 135;
+				fastcircuit.setValue(0.3);
+			} else if (gear.getValue() == 4) {
+				vmax = 170;
+				fastcircuit.setValue(0.4);
+			} else if (gear.getValue() == 5) {
+				vmax = 205;
+				fastcircuit.setValue(0.5);
+			} else if (gear.getValue() == 6) {
+				vmax = 235;
+				fastcircuit.setValue(0.6);
+			}
+		}else{
+			if (gear.getValue() == 0) {
+				vmax = 0;
+				fastcircuit.setValue(0);
+			} else if (gear.getValue() == 1) {
+				vmax = 70;
+				fastcircuit.setValue(0.1);
+			} else if (gear.getValue() == 2) {
+				vmax =  100;
+				fastcircuit.setValue(0.2);
+			} else if (gear.getValue() == 3) {
+				vmax = 130;
+				fastcircuit.setValue(0.3);
+			} else if (gear.getValue() == 4) {
+				vmax = 160;
+				fastcircuit.setValue(0.4);
+			} else if (gear.getValue() == 5) {
+				vmax = 190;
+				fastcircuit.setValue(0.5);
+			} else if (gear.getValue() == 6) {
+				vmax = 225;
+				fastcircuit.setValue(0.6);
+			}		
 		}
+		
 
 		# everthing is ok - let him go
 		if (gear.getValue() > 0 and clutch.getValue() == 0) {

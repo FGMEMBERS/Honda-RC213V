@@ -306,7 +306,24 @@
         </not>
         <property>sim/multiplay/generic/int[4]</property>
       </condition>
-    </animation>
+    </animation>       
+	
+	<animation>
+       <type>pick</type>
+       <object-name>cro</object-name>
+	   <visible>true</visible>
+       <action>
+	    <button>0</button>
+        <binding>	    
+    	  <command>property-toggle</command>
+		<property>controls/Honda-RC213V/Akrapovic/fit</property>
+		<step>1</step>
+		<min>0</min>
+		<max>1</max>
+		<wrap>1</wrap>		
+        </binding>           
+       </action>
+   </animation>	
  
   <!-- right left -->
   <animation>
