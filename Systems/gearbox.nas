@@ -141,16 +141,16 @@ var loop = func {
 				vmax =  115;
 				fastcircuit.setValue(0.2);
 			} else if (gear.getValue() == 3) {
-				vmax = 135;
+				vmax = 136;
 				fastcircuit.setValue(0.3);
 			} else if (gear.getValue() == 4) {
-				vmax = 170;
+				vmax = 174;
 				fastcircuit.setValue(0.4);
 			} else if (gear.getValue() == 5) {
-				vmax = 205;
+				vmax = 208;
 				fastcircuit.setValue(0.5);
 			} else if (gear.getValue() == 6) {
-				vmax = 235;
+				vmax = 240;
 				fastcircuit.setValue(0.6);
 			}
 		}else{

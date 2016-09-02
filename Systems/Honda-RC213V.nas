@@ -161,8 +161,8 @@ setlistener("/controls/flight/aileron", func (position){
 		if(getprop("/devices/status/mice/mouse/button")==1){
 			setprop("/controls/flight/aileron-manual",position*3);
 		}else{
-			f.setValue(position*0.65);
-			setprop("/controls/flight/aileron-manual", position*0.75);
+			f.setValue(position*0.70);
+			setprop("/controls/flight/aileron-manual", position*0.80);
 		}
 		
 	}else{
