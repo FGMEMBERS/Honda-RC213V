@@ -267,7 +267,7 @@ setlistener("/controls/engines/engine[0]/throttle", func (position){
 
 #----- speed meter selection ------
 
-setlistener("/gear/gear/rollspeed-ms", func (speed){
+setlistener("/gear/gear[1]/rollspeed-ms", func (speed){
     var speed = speed.getValue();
 	var crnw = getprop("/sim/crashed") or 0;
     # only for manipulate the reset m function 
